@@ -138,11 +138,65 @@
     -->
 
     <textarea id="code">#include <stdio.h>
+#include <math.h>
+#include <windows.h>
 
-int main(void) {
-    printf("Hola, món!\n");
-    printf("El programa C s'ha executat correctament!\n");
-    return 0;
+int main(){
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+
+      /* Dades Inicials */
+      double massa = 100.0; /* Massa en Kg */
+      double h0 = 32.0; /* Alçada en m */
+      double gravetat = 9.81; /* acceleració de la gravetat en m/s^2 */
+
+      double h1 = 10.0; /* Alçada opció 1 en m */
+      double h2 = 18.0; /* Alçada opció 2 en m */
+
+      /* variables de sortida */
+      double Em, Ep1, Ec1, V1;
+      double Ep2, Ec2, V2;
+
+      printf("\n");
+      printf("EXERCICI b1\n\n");
+
+      printf("Una grua té un objecte aixecat d'un pes de 100 Kg a 32 m \n");
+      printf("respecte el terra. El cabre que els subjecta es trenca i cau\n");
+      printf("l'objecte. Calcula la velocitat i l'Em (energia mecanica),\n");
+      printf("tenint en compte que el fregament de l'aire és negligible.\n\n");
+
+      printf("s'han de fer les dues opcions:\n\n");
+      printf("opció 1: 10 m del terra\n");
+      printf("opció 2: 18 m del terra\n\n");
+
+      /*L'energia mecànica és la matexa durant tota la caiguda (Em = m * g * h0)*/
+      Em = massa * gravetat * h0;
+
+      /*Opció 1: 10 m del terra*/
+      Ep1 = massa * gravetat * h1;
+      Ec1 = Em - Ep1;
+      V1 = sqrt((2 * Ec1) / massa);
+
+      /*Opció 2: 18 m del terra*/
+      Ep2 = massa * gravetat * h2;
+      Ec2 = Em - Ep2;
+      V2 = sqrt((2 * Ec2) / massa);
+
+      /*Mostra del resultats a la pantalla*/
+      
+      printf("Opció 1: (10 m del terra)\n");
+      printf("Ep1: %.2f J\n", Ep1);
+      printf("Ec1: %.2f J\n", Ec1);
+      printf("Em: %.2f J\n", Em);
+      printf("V1: %.3f m/s\n\n", V1);
+
+      printf("Opció 2: (18 m del terra)\n");
+      printf("Ep2: %.2f J\n", Ep2);
+      printf("Ec2: %.2f J\n", Ec2);
+      printf("Em: %.2f J\n", Em);
+      printf("V2: %.3f m/s\n\n", V2);
+
+      return 0;   
 }</textarea>
 
   </div>
